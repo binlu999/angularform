@@ -1,0 +1,264 @@
+@CHARSET "ISO-8859-1";
+
+body {
+    background-color: #ecf0f1;
+}
+.jumbotron{
+    padding: 2.0em 1.0em;
+    h1 {
+        font-size: 2em;
+    }
+    p {
+        font-size: 1.2em;
+        .btn {
+            padding: 0.5em;
+        }
+    }
+    color: #2f2f2f;
+    background: #eff0f1;
+    background: -webkit-linear-gradient(#eff0f1, #cdd3d7);
+    background:    -moz-linear-gradient(#eff0f1, #cdd3d7);
+    background:         linear-gradient(#eff0f1, #cdd3d7);
+}
+.modal-backdrop {
+  bottom:0;
+}
+.modal-backdrop.in {
+  opacity:0.3 !important;
+}
+.modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #e3e3e3;
+    background-color: #efeced;
+}
+.modal-body {
+     padding:9px 15px;
+     border-bottom:1px solid #e3e3e3;
+     background-color: #e2e2e2;
+ }
+.modal-footer {
+     padding:9px 15px;
+     border-bottom:1px solid #e3e3e3;
+     background-color: #efeced;
+}
+
+.my-btn-new{
+	color: #eeeeee;
+    background: #013e71;
+    background-image:url("../pics/newScannedAppIcon_WHITE.svg");
+	background-repeat:no-repeat;
+	padding:10px 5px;
+	width:320px;
+	text-align:right;
+}
+.my-btn-new:hover, .my-btn-new:focus {
+  border-color: #7f8c8d;
+  background-color: #497ecb;
+}
+.my-btn-new.active, .my-btn-new:active {
+    background-color: #497ecd;
+}
+.my-btn-existing{
+	color: #eeeeee;
+    background: #013e71;
+    background-image:url("../pics/existingAppIcon_WHITE.svg");
+	background-repeat:no-repeat;
+	padding:10px 5px;
+	width:340px;
+	text-align:right;
+}
+.my-btn-existing:hover, .my-btn-existing:focus {
+  border-color: #7f8c8d;
+  background-color: #497ecb;
+}
+.my-btn-existing.active, .my-btn-existing:active {
+    background-color: #497ecd;
+}
+
+.my-btn-gray{
+    background: #cdd3d7;
+    color: #eeeeee;
+}
+.my-btn-gray:hover, .my-btn-gray:focus {
+  border-color: #cdd3d7;
+  background-color: #eff0f1;
+}
+.my-btn-gray.active, .my-btn-gray:active {
+    background-color: #eff0f1;
+}
+.my-btn-primary{
+    background: #013e71;
+    color: #eeeeee;
+}
+.my-btn-primary:hover, .my-btn-primary:focus {
+  border-color: #7f8c8d;
+  background-color: #497ecb;
+}
+.my-btn-primary.active, .my-btn-primary:active {
+    background-color: #497ecd;
+}
+.my-btn-warning{
+    background: #f39c12;
+    color: #eeeeee;
+}
+.my-btn-warning:hover {
+  border-color: #C0C0C0;
+  background-color: #f1c40f;
+}
+.my-btn-danger{
+    background: #e74c3c;
+    color: #eeeeee;
+}
+.my-btn-danger:hover {
+  border-color: #C0C0C0;
+  background-color: #e67e22;
+}
+.my-btn-success{
+    background: #27ae60;
+    color: #eeeeee;
+}
+.my-btn-success:hover {
+  border-color: #C0C0C0;
+  background-color: #2ecc71;
+}
+
+/* header div buttons */
+
+ .rcorners1 {
+	    border-radius: 5px;
+	    background: #013e71 !important;	    
+	}
+	
+	.rcorners1 h4{
+		color: white;
+	}
+	.rcorners1 h5{
+		color: white;
+	}
+	.rcorners1 h6 small{
+		color: white;
+	}
+	.rcorners1 h7 small{
+		color: white;
+	}
+	
+.header-image-new {
+		background-image: url("../pics/newScannedAppIcon_WHITE.svg");
+		display: inline-block;
+		height: 70px;
+		width: 70px;
+		background-repeat: no-repeat;										
+  	}
+  	
+.header-image-existing {
+		background-image: url("../pics/existingAppIcon_WHITE.svg");
+		display: inline-block;
+		height: 70px;
+		width: 70px;
+		background-repeat: no-repeat;										
+  	}
+ 
+.divStyle {
+    box-shadow:none;
+    cursor: pointer;
+}
+
+.divStyle:hover {
+ 	/* box-shadow: inset 0 0 0 5px #A7A18A; */
+ 	box-shadow:
+                1px 1px #0D80BB,
+                2px 2px #488099,
+                3px 3px #808080;
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    /* opacity: 0.4; filter: alpha(opacity=40); */    
+} 	  	
+
+
+
+ 
+   
+/* header div buttons end */   
+            
+
+.drop-box {
+    color: #e8e8e8;
+	background: rgba(201,209,201,1);
+	background: -moz-linear-gradient(45deg, rgba(201,209,201,1) 0%, rgba(174,204,202,0.97) 18%, rgba(106,141,156,0.92) 51%, rgba(174,204,202,0.88) 82%, rgba(201,209,201,0.85) 100%);
+	background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(201,209,201,1)), color-stop(18%, rgba(174,204,202,0.97)), color-stop(51%, rgba(106,141,156,0.92)), color-stop(82%, rgba(174,204,202,0.88)), color-stop(100%, rgba(201,209,201,0.85)));
+	background: -webkit-linear-gradient(45deg, rgba(201,209,201,1) 0%, rgba(174,204,202,0.97) 18%, rgba(106,141,156,0.92) 51%, rgba(174,204,202,0.88) 82%, rgba(201,209,201,0.85) 100%);
+	background: -o-linear-gradient(45deg, rgba(201,209,201,1) 0%, rgba(174,204,202,0.97) 18%, rgba(106,141,156,0.92) 51%, rgba(174,204,202,0.88) 82%, rgba(201,209,201,0.85) 100%);
+	background: -ms-linear-gradient(45deg, rgba(201,209,201,1) 0%, rgba(174,204,202,0.97) 18%, rgba(106,141,156,0.92) 51%, rgba(174,204,202,0.88) 82%, rgba(201,209,201,0.85) 100%);
+	background: linear-gradient(45deg, rgba(201,209,201,1) 0%, rgba(174,204,202,0.97) 18%, rgba(106,141,156,0.92) 51%, rgba(174,204,202,0.88) 82%, rgba(201,209,201,0.85) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9d1c9', endColorstr='#c9d1c9', GradientType=1 );
+    border: 2px solid #88aacc;
+    width: 68%;
+    height: 80px;
+    text-align: center;
+    font-size:16px;
+    padding-top: 24px;
+    margin-top: 20px;
+    -webkit-box-shadow: 1px 2px 3px 2px rgba(0,0,0,0.37);
+	-moz-box-shadow: 1px 2px 3px 2px rgba(0,0,0,0.37);
+	box-shadow: 1px 2px 3px 2px rgba(0,0,0,0.37);
+}
+.dragover {
+    border: 2px solid #1E90FF;
+}
+
+.percent {
+    position: absolute; width: 300px; height: 14px; z-index: 1; text-align: center; font-size: 0.8em; color: white;
+}
+.progress-bar {
+    width: 300px; height: 14px;
+    border-radius: 10px;
+    border: 1px solid #CCC;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#6666cc), to(#4b4b95));
+    border-image: initial;
+}
+.uploaded {
+    padding: 0;
+    height: 14px;
+    border-radius: 10px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#66cc00), to(#4b9500));
+    border-image: initial;
+}
+.dropbox {
+    width: 10em;
+    height: 3em;
+    border: 2px solid #DDD;
+    border-radius: 8px;
+    background-color: #FEFFEC;
+    text-align: center;
+    color: #BBB;
+    font-size: 2em;
+    font-family: Arial, sans-serif;
+}
+.dropbox span {
+    margin-top: 0.9em;
+    display: block;
+}
+.dropbox.not-available {
+    background-color: #F88;
+}
+.dropbox.over {
+    background-color: #bfb;
+}
+
+.error-class {
+	color: #b94a48;
+}
+
+.success-class {
+	color: #229066;
+}
+
+input.ng-invalid {
+  border:1px solid #b94a48;
+  outline-color: red;
+}
+
+input.ng-invalid {
+  border:1px solid #b94a48;
+  outline-color: red;
+}

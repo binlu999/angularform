@@ -1,0 +1,24 @@
+
+/* Stylesheet content from css/main.css in folder common */
+/*	 Licensed Materials - Property of IBM
+	 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
+	 US Government Users Restricted Rights - Use, duplication or
+     disclosure restricted by GSA ADP Schedule Contract with IBM Corp. */
+
+.cmodSection {
+	background: linear-gradient(#eff0f1, #cdd3d7);
+}
+
+.cmodSectionHeader {
+	text-align:center;
+	font-size: 20pt;
+}
+
+.cmodSectionAppend {
+	font-size: 18pt;
+}
+
+.quickbtn {
+	text-align:center;
+ 	margin-top:5px;
+}

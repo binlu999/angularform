@@ -1,0 +1,62 @@
+
+
+<div id="searchDiv" class="container-fluid">
+
+
+
+<div class="panel col-xs-12 cmodSection">
+
+  	<div class="panel-heading col-xs-12 cmodSectionHeader">
+  		<strong>Report Search</strong>
+  	</div>
+  	
+</div> 
+ 
+
+<form name="searchForm" class="css-form" novalidate>    		
+<table  style="width:100%;" border="0" cellpadding="2" cellspacing="2" class="normal">
+	<tbody>		
+		 
+	 
+		<tr>
+			<td class="ipqsnav" style="text-align:center;" valign="bottom" height="17" colspan="3">
+				<b><i>Policy Number</i></b>
+			</td>
+		</tr>
+		
+		<tr>
+			<td style="text-align:center;" colspan="3">
+				<input type="text" name="polnumber" id=polnumber size="22" 
+				 style="border:1px solid gray;" class="form-control" ng-model="search.policyNum"/>
+			</td>
+		</tr>
+
+ 
+		
+		<tr>
+			<td class="ipqsnav" style="text-align:center;" colspan="3">
+				<button type="button"  class="btn btn-primary" ng-click="submitSearch('FormSearch')">Submit</button>
+				
+			</td>
+		</tr>
+		
+				
+	</tbody> 
+</table>
+</form> 
+
+    <div ng-messages="searchForm.polnumber.$error" class="error-class">
+        <ng-message when="required"><br/>Policy numberis required.</ng-message>
+    </div>
+
+    
+    <div ng-messages="searchMsg.error" class="error-class">
+        <ng-message when="fix">Fix errors before submitting.</ng-message>
+    </div>
+
+
+</div>
+
+
+	
+

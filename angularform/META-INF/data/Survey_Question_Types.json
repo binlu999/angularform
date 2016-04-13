@@ -1,0 +1,28 @@
+{
+  "surveyQuestionTypes": [
+    {
+      "code": "SS",
+      "description": "Single Selection"
+    },
+    {
+      "code": "DT",
+      "description": "Date Time"
+    },
+    {
+      "code": "DD",
+      "description": "Drop Down list"
+    },
+    {
+      "code": "TA",
+      "description": "Text Area"
+    },
+    {
+      "code": "TV",
+      "description": "free Text Value"
+    },
+    {
+      "code": "MS",
+      "description": "Multiple Selection"
+    }
+  ]
+}

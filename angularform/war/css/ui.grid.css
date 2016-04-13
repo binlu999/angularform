@@ -1,0 +1,44 @@
+@CHARSET "ISO-8859-1";
+
+.grid {
+  height: 434px;
+}
+
+.grid .ui-grid-row .blue {
+  background-color: #ddddee;
+}
+
+.grid .ui-grid-row .red {
+  background-color: #eedddd;
+}
+
+.grid .ui-grid-row .green {
+  background-color: #ddeedd;
+}
+
+.grid .ui-grid-row .orange {
+  background-color: #eeeedd;
+}
+
+
+.watermark {
+	position: fixed;
+    opacity: 0.25;
+    font-size: 3em;
+    text-align: center;
+    transform: translate(250px,-250px) rotate(3deg);
+}
+
+
+ .myGrid {
+     width: 500px;
+     height: 250px;
+ }
+ 
+ .ui-grid-header{
+  height: 30px;
+}
+
+    
+    
+    

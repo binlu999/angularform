@@ -1,0 +1,41 @@
+<div id="rptDiv" style="">
+
+
+	<section ng-controller="surveyViewCtrl">
+		<label>{{data.formDescription}}</label>
+		<DIV ng-repeat="question in data.Questions">
+			<label>{{question.questionText}}</label>
+			<div ng-switch on="question.questionType">
+				<div ng-switch-when="date">
+					Select date <input type="date" id="exampleInput" name="input"
+						ng-model="question.value" placeholder="yyyy-MM-dd"
+						min="2001-01-01" max="2017-12-31" required />
+				</div>
+				<div ng-switch-when="checktrigger">
+					<div ng-repeat="option in question.Options">
+						<input type="radio" name="radiocheck" ng-model="question.value"
+							value="{{option.optionText}}">{{option.optionText}} 
+							<DIV>
+						<span ng-show="question.value=='Yes'"> 
+						<label>{{option.triggerQuestion.questionText}}</label>
+							<div ng-repeat="opt in option.triggerQuestion.Options">
+							 <label>{{opt.optionText}}:
+    <input type="text" name="input" ng-model="opt.value">
+  </label>
+							</div>	
+						</span>
+						</DIV>
+					</div>
+				</div>
+				<div ng-switch-default>
+					<!-- code to render the regular video block -->
+
+				</div>
+			</div>
+
+		</DIV>
+	</section>
+
+
+
+</div>

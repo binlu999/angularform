@@ -1,0 +1,81 @@
+{
+  "companyCode": "101",
+  "marketArea": "MLM",
+  "prodCode": "Life",
+  "formDescription": "MLM Sample Survey",
+  "Questions": [
+    {
+      "questionText": "Have you received your contract?",
+      "questionType": "TV",
+      "displpayOrder": 10,
+      "Options": [
+        {
+          "optionText": "Yes",
+          "optionOrder": 1,
+          "triggerQuestion": {
+            "questionText": "When did you receive the contract?",
+            "questionType": "TV",
+            "displpayOrder": 0,
+            "Options": [
+              {
+                "optionText": "Anyone called you?",
+                "optionOrder": 1,
+                "triggerQuestion": {
+                  "questionText": "What is the caller name?",
+                  "questionType": "TV",
+                  "displpayOrder": 10,
+                  "Options": [
+                    {
+                      "optionText": "Type your answer here",
+                      "optionOrder": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "questionText": "When did you get contacted?",
+      "questionType": "date",
+      "displpayOrder": 10,
+      "value": ""
+    },
+    {
+      "questionText": "Do you have contacts?",
+      "questionType": "checktrigger",
+      "displpayOrder": 10,
+      "value": "",
+      "Options": [
+        {
+          "optionText": "Yes",
+          "optionOrder": 1,
+          "triggerQuestion": {
+            "questionText": "Please provide contact info",
+            "questionType": "TV",
+            "displpayOrder": 10,
+            "Options": [
+              {
+                "optionText": "Name",
+                "optionOrder": 1,
+                "value": ""
+              },
+              {
+                "optionText": "Phone",
+                "optionOrder": 1,
+                "value": ""
+              }
+            ]
+          }
+        },
+        {
+          "optionText": "No",
+          "optionOrder": 1
+          
+        }
+      ]
+    }
+  ]
+}
