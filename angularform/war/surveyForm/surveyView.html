@@ -1,7 +1,6 @@
 <div id="rptDiv" style="">
 
 <form name="searchForm" class="css-form" novalidate>    
-	<section ng-controller="surveyViewCtrl">
 		<label>{{data.formDescription}}</label>
 		<DIV ng-repeat="question in data.questions">
 			<label>{{question.questionText}}</label>
@@ -9,7 +8,7 @@
 				<div ng-switch-when="date">
 					Select date <input type="date" id="exampleInput" name="input"
 						ng-model="question.value" placeholder="yyyy-MM-dd"
-						min="2001-01-01" max="2017-12-31" required />
+						min="2001-01-01" max="2017-12-31" required datepickeroptions="dateOptions" />
 				</div>
 				<div ng-switch-when="checktrigger">
 					<div ng-repeat="option in question.options">
@@ -34,10 +33,10 @@
 			</div>
 
 		</DIV>
-	</section>
+
 	<tr>
 			<td class="ipqsnav" style="text-align:center;" colspan="3">
-				<button type="button"  class="btn btn-primary" ng-click="submitSurvey('FormSearch')">Submit</button>
+				<button type="button"  class="btn btn-primary" ng-click="submitSurvey()">Submit</button>
 				
 			</td>
 		</tr>

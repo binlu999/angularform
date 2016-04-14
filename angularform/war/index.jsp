@@ -96,6 +96,7 @@
 			<script src="<%= renderResponse.encodeURL(renderRequest.getContextPath() + "/js/controllers.js")%>"></script>
 			<script src="<%= renderResponse.encodeURL(renderRequest.getContextPath() + "/js/appsvc.js")%>"></script>		
     		<script src="<%= renderResponse.encodeURL(renderRequest.getContextPath() + "/js/usersvc.js")%>"></script>
+    		<script src="<%= renderResponse.encodeURL(renderRequest.getContextPath() + "/js/formedit.js")%>"></script>
     	  			
         </div>	    	
  

@@ -1,6 +1,8 @@
 package com.jpa.angular.servelt;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.logging.Logger;
 
@@ -34,13 +36,40 @@ public class SurveyFormServlet extends HttpServlet {
 	public void service(ServletRequest req, ServletResponse res)
 			throws ServletException, IOException {
 		log.info("Service");
-		getFormJSON(res);
+		String requesttype = req.getParameter("requesttype");
+		if ("forform".equals(requesttype)) {
+			getFormJSON(res);
+		} else if ("saveform".equals(requesttype)) {
+			saveSurveyResponse(req, res);
+		}
 
+	}
+
+	private void saveSurveyResponse(ServletRequest req, ServletResponse res)
+			throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(
+				req.getInputStream()));
+		StringBuilder json = new StringBuilder();
+
+		if (br != null) {
+			try {
+				String line = null;
+				while ((line = br.readLine()) != null) {
+					json.append(line);
+				}
+
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				br.close();
+			}
+		}
+		log.info(json.toString());
 	}
 
 	private void getFormJSON(ServletResponse res) {
 		SurveyFormFileImporter importer = new SurveyFormFileImporter();
-		ObjectMapper mapper = new ObjectMapper();
 		SurveyFormVO formVO;
 		try {
 			formVO = importer
@@ -48,12 +77,11 @@ public class SurveyFormServlet extends HttpServlet {
 			Gson gson = new Gson();
 			String json = gson.toJson(formVO);
 			res.getWriter().println(json);
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
 
 }

@@ -1,4 +1,4 @@
-surveyControllerMod.controller('surveyViewCtrl', [ '$scope', '$http', function($scope, $http) {
+surveyControllerMod.controller('surveyEditCtrl', [ '$scope', '$http', function($scope, $http) {
 	
 	$http.get("/res/surveyform?requesttype=forform").then(function(response) {
 		$scope.data = response.data;
