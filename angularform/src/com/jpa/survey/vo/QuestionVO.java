@@ -16,10 +16,10 @@ import com.jpa.util.QuestionTypeUtil;
 public class QuestionVO {
 
 	@JsonIgnore
-	private Key questionId;
+	private String questionId;
 	private String questionText;
 	private String questionType;
-	@JsonProperty("Options")
+	@JsonProperty("options")
 	private List<QuestionOptionVO> options;
 	private int displpayOrder;
 	private String value;
@@ -38,7 +38,7 @@ public class QuestionVO {
 
 	public QuestionVO(Question question) {
 
-		this.questionId = question.getQuestionId();
+		this.questionId = question.getQuestionId().toString();
 		this.questionText = question.getQuestionText();
 		this.questionType = question.getSurveyQuestionType().getCode();
 
@@ -53,11 +53,11 @@ public class QuestionVO {
 		}
 	}
 
-	public Key getQuestionId() {
+	public String getQuestionId() {
 		return questionId;
 	}
 
-	public void setQuestionId(Key questionId) {
+	public void setQuestionId(String questionId) {
 		this.questionId = questionId;
 	}
 
@@ -98,7 +98,7 @@ public class QuestionVO {
 	@JsonIgnore
 	public Question getEntity() {
 		Question question = new Question();
-		question.setQuestionId(this.questionId);
+		//question.setQuestionId(this.questionId);
 		question.setQuestionText(this.questionText);
 		question.setSurveyQuestionType(QuestionTypeUtil.getSurveyQuestionType(this.questionType));
 		if(this.options!=null){

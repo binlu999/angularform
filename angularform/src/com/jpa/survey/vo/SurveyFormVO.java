@@ -11,38 +11,38 @@ import com.jpa.survey.entity.Question;
 public class SurveyFormVO {
 
 	@JsonIgnore
-	private long surveyFormId;
+	private String surveyFormId;
 	private String companyCode;
 	private String marketArea;
 	private String prodCode;
 	private String formDescription;
-	@JsonProperty("Questions")
-	private java.util.List<QuestionVO> questionVOs;
+	@JsonProperty("questions")
+	private java.util.List<QuestionVO> questions;
 
 	public SurveyFormVO() {
 	}
 
 	public SurveyFormVO(SurveyForm surveyForm) {
-		this.surveyFormId = surveyForm.getSurveyFormId();
+		this.surveyFormId = String.valueOf(surveyForm.getSurveyFormId());
 		this.companyCode = surveyForm.getCompanyCode();
 		this.marketArea = surveyForm.getMarketArea();
 		this.prodCode = surveyForm.getProdCode();
 		this.formDescription = surveyForm.getFormDescription();
-		this.questionVOs = new java.util.ArrayList<QuestionVO>();
+		this.questions = new java.util.ArrayList<QuestionVO>();
 		Collection<SurveyQuestion> sqs = surveyForm.getSurveyQuestions();
 		for (SurveyQuestion sq : sqs) {
 			Question q = sq.getQuestion();
 			QuestionVO surveyQuestionVO = new QuestionVO(q);
 			surveyQuestionVO.setDisplpayOrder(sq.getContentOrder());
-			this.questionVOs.add(surveyQuestionVO);
+			this.questions.add(surveyQuestionVO);
 		}
 	}
 
-	public long getSurveyFormId() {
+	public String getSurveyFormId() {
 		return surveyFormId;
 	}
 
-	public void setSurveyFormId(long surveyFormId) {
+	public void setSurveyFormId(String surveyFormId) {
 		this.surveyFormId = surveyFormId;
 	}
 
@@ -81,14 +81,14 @@ public class SurveyFormVO {
 	@JsonIgnore
 	public SurveyForm getEntity() {
 		SurveyForm surveyForm = new SurveyForm();
-		surveyForm.setSurveyFormId(this.surveyFormId);
+		surveyForm.setSurveyFormId(Long.valueOf(this.surveyFormId));
 		surveyForm.setCompanyCode(this.companyCode);
 		surveyForm.setMarketArea(this.marketArea);
 		surveyForm.setProdCode(this.prodCode);
 		surveyForm.setFormDescription(this.formDescription);
-		if (this.questionVOs != null) {
+		if (this.questions != null) {
 			Collection<SurveyQuestion> sqs = new java.util.ArrayList<SurveyQuestion>();
-			for (QuestionVO questionVO : questionVOs) {
+			for (QuestionVO questionVO : questions) {
 				Question q = questionVO.getEntity();
 				SurveyQuestion sq = new SurveyQuestion();
 				sq.setSurveyForm(surveyForm);

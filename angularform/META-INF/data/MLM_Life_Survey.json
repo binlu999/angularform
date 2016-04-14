@@ -3,39 +3,39 @@
   "marketArea": "MLM",
   "prodCode": "Life",
   "formDescription": "MLM Sample Survey",
-  "Questions": [
+  "questions": [
     {
       "questionText": "Have you received your contract?",
       "questionType": "TV",
-      "displpayOrder": 10,
-      "Options": [
+      "options": [
         {
           "optionText": "Yes",
           "optionOrder": 1,
           "triggerQuestion": {
             "questionText": "When did you receive the contract?",
             "questionType": "TV",
-            "displpayOrder": 0,
-            "Options": [
+            "options": [
               {
                 "optionText": "Anyone called you?",
                 "optionOrder": 1,
                 "triggerQuestion": {
                   "questionText": "What is the caller name?",
                   "questionType": "TV",
-                  "displpayOrder": 10,
-                  "Options": [
+                  "options": [
                     {
                       "optionText": "Type your answer here",
                       "optionOrder": 1
                     }
-                  ]
+                  ],
+                  "displpayOrder": 10
                 }
               }
-            ]
+            ],
+            "displpayOrder": 0
           }
         }
-      ]
+      ],
+      "displpayOrder": 10
     },
     {
       "questionText": "When did you get contacted?",
@@ -46,17 +46,14 @@
     {
       "questionText": "Do you have contacts?",
       "questionType": "checktrigger",
-      "displpayOrder": 10,
-      "value": "",
-      "Options": [
+      "options": [
         {
           "optionText": "Yes",
           "optionOrder": 1,
           "triggerQuestion": {
             "questionText": "Please provide contact info",
             "questionType": "TV",
-            "displpayOrder": 10,
-            "Options": [
+            "options": [
               {
                 "optionText": "Name",
                 "optionOrder": 1,
@@ -67,15 +64,17 @@
                 "optionOrder": 1,
                 "value": ""
               }
-            ]
+            ],
+            "displpayOrder": 10
           }
         },
         {
           "optionText": "No",
           "optionOrder": 1
-          
         }
-      ]
+      ],
+      "displpayOrder": 10,
+      "value": ""
     }
   ]
 }

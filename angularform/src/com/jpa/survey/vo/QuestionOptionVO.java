@@ -10,11 +10,11 @@ import com.jpa.survey.entity.Question;
 public class QuestionOptionVO {
 
 	@JsonIgnore
-	private long optionId;
+	private String optionId;
 	private String optionText;
 	private int optionOrder;
 	@JsonProperty("triggerQuestion")
-	private QuestionVO triggerQuestionVO;
+	private QuestionVO triggerQuestion;
 	
 	private String value;
 
@@ -28,20 +28,20 @@ public class QuestionOptionVO {
 		super();
 	}
 	public QuestionOptionVO(QuestionOption option) {
-		this.optionId=option.getOptionId();
+		this.optionId=String.valueOf(option.getOptionId());
 		this.optionText=option.getOptionText();
 		this.optionOrder=option.getOptionOrder();
 		Question trigerQuestion = option.getTriggerQuestion();
 		if(trigerQuestion!=null){
-			this.triggerQuestionVO=new QuestionVO(trigerQuestion);
+			this.triggerQuestion=new QuestionVO(trigerQuestion);
 		}
 	}
 
-	public long getOptionId() {
+	public String getOptionId() {
 		return optionId;
 	}
 
-	public void setOptionId(long optionId) {
+	public void setOptionId(String optionId) {
 		this.optionId = optionId;
 	}
 
@@ -62,21 +62,21 @@ public class QuestionOptionVO {
 	}
 
 	public QuestionVO getTriggerQuestionVO() {
-		return triggerQuestionVO;
+		return triggerQuestion;
 	}
 
 	public void setTriggerQuestionVO(QuestionVO triggerQuestionVO) {
-		this.triggerQuestionVO = triggerQuestionVO;
+		this.triggerQuestion = triggerQuestionVO;
 	}
 	
 	@JsonIgnore
 	public QuestionOption getEntity() {
 		QuestionOption option=new QuestionOption();
-		option.setOptionId(this.optionId);
+		option.setOptionId(Long.valueOf(this.optionId));
 		option.setOptionText(this.optionText);
 		option.setOptionOrder(this.optionOrder);
-		if(this.triggerQuestionVO!=null){
-			option.setTriggerQuestion(this.triggerQuestionVO.getEntity());
+		if(this.triggerQuestion!=null){
+			option.setTriggerQuestion(this.triggerQuestion.getEntity());
 		}
 		return option;
 	}	

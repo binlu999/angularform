@@ -13,7 +13,7 @@ var surveySvcMod = angular.module("surveySvcMod",[]);
 
 
 
-// alert('test1b'); 
+// alert('test1b');
 
 // alert("cmodBaseUrl app:"+cmodBaseUrl);
 
@@ -28,7 +28,10 @@ surveyNgApp.config(['$routeProvider',
                             templateUrl: surveyBaseUrl+ '/surveyForm/surveyView.html',
                             controller: 'surveyViewCtrl'
                           }).  
-                              
+                        when('/submit',{
+                    	  templateUrl: surveyBaseUrl+ '/surveyForm/submitView.html',
+                          controller: 'surveySubmitCtrl'
+                      }).      
                         when('/error', {
                              templateUrl: surveyBaseUrl+ '/surveyform/errorView.html',
                              controller: 'surveyErrorCtrl'
