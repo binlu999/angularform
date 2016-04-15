@@ -6,7 +6,7 @@ angular.module('surveyform.edit').controller('survey.edit.ctl', function ($scope
 		console.log("Got data Inside new[[" + JSON.stringify($scope.data) + "]]");
 	});
 	
-	$scope.formheaders=["companyCode","marketArea","prodCode"]
+	$scope.formheaders=["formDescription","companyCode","marketArea","prodCode"]
 	$scope.tabs = [
     { title:'Dynamic Title 1', content:'Dynamic content 1' },
     { title:'Dynamic Title 2', content:'Dynamic content 2', disabled: true }
