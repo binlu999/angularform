@@ -39,9 +39,14 @@
     },
     {
       "questionText": "When did you get contacted?",
-      "questionType": "date",
+      "questionType": "DR",
+      "required":true,
       "displpayOrder": 10,
-      "value": ""
+      "options": [
+        {
+          "value": "yyyy-mm-dd"
+        }
+      ]
     },
     {
       "questionText": "Do you have contacts?",

@@ -1,0 +1,48 @@
+<uib-accordion close-others="false">
+  	<uib-accordion-group heading="Question" ng-repeat="question in data.questions">
+		<uib-tabset active="activeForm"> 
+			<uib-tab index="0" 	heading="View">
+			<lable>{{question.questionText}}</lable>
+			<div ng-switch on="question.questionType">
+				<div ng-switch-when="DR">
+					<DIV ng-repeat="option in question.options">
+						<input type="date" ng-model="option.value" placeholder="yyyy-MM-dd"
+							min="2001-01-01" max="2017-12-31" required datepickeroptions="dateOptions" />
+					</DIV>
+				</div>
+			</div>
+	</uib-tab> 
+	<uib-tab index="1" heading="Edit"> 
+		<DIV>
+			<lable>questionText</lable> <input type="text" class="form-control" required ng-model="question.questionText" />
+		</DIV>
+		<DIV>
+			<lable>questionType</lable>
+			<select  ng-model="question.questionType">
+      			<option value="">---Please select---</option>
+      			<option ng-repeat="questionType in questionTypes.surveyQuestionTypes" value="{{questionType.code}}">{{questionType.code}}-{{questionType.description}}</option>
+     
+    		</select>
+		</DIV>
+		<DIV>
+		Options
+		<ul>
+    		<li ng-repeat="option in question.options">
+    		<DIV>
+    			<label>optionText: <input type="text" ng-model="option.optionText"></label>
+    			<label>optionOrder: <input type="text" ng-model="option.optionOrder"></label>
+    			<button ng-click="question.options.splice($index, 1)" aria-label="Remove">X</button>
+    		</DIV>
+    		</li>
+    		<li>
+    			
+    		</li>
+  		</ul>
+      	<button ng-click="question.options.push({})">add</button>
+
+		</DIV>
+		
+	</uib-tab> 
+</uib-tabset>
+</uib-accordion-group>
+</uib-accordion>

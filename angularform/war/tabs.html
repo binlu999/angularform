@@ -5,7 +5,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
     <script src="/js/tabs.js"></script>
-    <script src="/js/subviews/formeditheader.js"></script>
     
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
   </head>
@@ -19,47 +18,21 @@
 
 <div ng-controller="survey.edit.ctl">
 
-  <form name="outerForm" class="tab-form-demo">
   
-  <uib-accordion close-others="false">
-  <uib-accordion-group heading="Form Headers">
-    <uib-tabset active="activeForm">
-      <uib-tab index="0" heading="View">
-        <DIV ng-repeat="formheader in formheaders">
-        <label>{{formheader}}:{{data[formheader]}}</label>
-        </DIV>
-        <DIV id="tpl-content" ng-include src="tpl.html"></DIV>
-      </uib-tab>
-      <uib-tab index="1" heading="Edit">
-       <label>Form Description:</label><input type="text" class="form-control" required ng-model="data.formDescription"/><br>
-        <label>Company Code:</label><input type="text" class="form-control" required ng-model="data.companyCode"/><br>
-        <label>marketArea:</label><input type="text" class="form-control" required ng-model="data.marketArea"/><br>
-        <label>prodCode:</label><input type="text" class="form-control" required ng-model="data.prodCode"/><br>
-      </uib-tab>
-    </uib-tabset>
+ <uib-accordion close-others="false">
+  	<uib-accordion-group heading="Form Headers">
+  		<div ng-include src="'/subviews/formeditheader.html'"></div>
     </uib-accordion-group>
     <uib-accordion-group heading="Questions">
-    <uib-tabset active="activeForm">
-      <uib-tab index="0" heading="View">
-        <label>Form Description:{{data.formDescription}}<br>
-        <label>Company Code:{{data.companyCode}}</label><br>
-        <label>marketArea:{{data.marketArea}}</label><br>
-        <label>prodCode:{{data.prodCode}}</label><br>
-      </uib-tab>
-      <uib-tab index="1" heading="Edit">
-       <label>Form Description:</label><input type="text" class="form-control" required ng-model="data.formDescription"/><br>
-        <label>Company Code:</label><input type="text" class="form-control" required ng-model="data.companyCode"/><br>
-        <label>marketArea:</label><input type="text" class="form-control" required ng-model="data.marketArea"/><br>
-        <label>prodCode:</label><input type="text" class="form-control" required ng-model="data.prodCode"/><br>
-      </uib-tab>
-    </uib-tabset>
+    	<div ng-include src="'/subviews/formeditquestion.html'"></div>
     </uib-accordion-group>
     </uib-accordion>
-  </form>
+
   Model:
   <pre>{{ data | json }}</pre>
-  Nested Form:
-  <pre>{{ outerForm.nestedForm | json }}</pre>
+ 
 </div>
   </body>
 </html>
+
+

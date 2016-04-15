@@ -40,12 +40,18 @@ public class SurveyFormFileImporter {
 
 	public SurveyFormVO importFileToObjectByGson(String resourcePath)
 			throws JsonParseException, JsonMappingException, IOException {
-		InputStream input = this.getClass().getClassLoader()
+		InputStream input =null;
+		try{
+		input= this.getClass().getClassLoader()
 				.getResourceAsStream(resourcePath);
 		Gson gson = new GsonBuilder().create();
 		Reader reader = new InputStreamReader(input);
 		SurveyFormVO surveyFormVO = gson.fromJson(reader, SurveyFormVO.class);
 		return surveyFormVO;
+		}finally{
+			if(input!=null)
+				input.close();
+		}
 
 	}
 

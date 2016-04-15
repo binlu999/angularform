@@ -5,8 +5,12 @@
       "description": "Single Selection"
     },
     {
-      "code": "DT",
-      "description": "Date Time"
+      "code": "DR",
+      "description": "Date Required"
+    },
+    {
+      "code": "DN",
+      "description": "Date Not Required"
     },
     {
       "code": "DD",

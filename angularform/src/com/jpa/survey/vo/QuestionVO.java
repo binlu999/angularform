@@ -23,6 +23,7 @@ public class QuestionVO {
 	private List<QuestionOptionVO> options;
 	private int displpayOrder;
 	private String value;
+	private boolean required;
 	
 	public String getValue() {
 		return value;
@@ -93,6 +94,15 @@ public class QuestionVO {
 
 	public void setDisplpayOrder(int displpayOrder) {
 		this.displpayOrder = displpayOrder;
+	}
+
+	
+	public boolean isRequired() {
+		return required;
+	}
+
+	public void setRequired(boolean required) {
+		this.required = required;
 	}
 
 	@JsonIgnore

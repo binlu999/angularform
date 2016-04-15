@@ -17,7 +17,9 @@ import javax.ws.rs.core.Response;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.jpa.survey.file.SurveyFormFileImporter;
+import com.jpa.survey.file.SurveyQuestionTypeFileImporter;
 import com.jpa.survey.vo.SurveyFormVO;
+import com.jpa.survey.vo.SurveyQuestionTypeVO;
 
 public class SurveyFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -41,8 +43,26 @@ public class SurveyFormServlet extends HttpServlet {
 			getFormJSON(res);
 		} else if ("saveform".equals(requesttype)) {
 			saveSurveyResponse(req, res);
+		}else if ("forquestiontype".equals(requesttype)) {
+			getQuestionTypesJSON(res);
 		}
 
+	}
+
+	private void getQuestionTypesJSON(ServletResponse res) {
+		SurveyQuestionTypeFileImporter importer = new SurveyQuestionTypeFileImporter();
+		SurveyQuestionTypeVO vo;
+		try {
+			vo = importer.importQuestionTypeByGSON("data/Survey_Question_Types.json");
+			Gson gson = new Gson();
+			String json = gson.toJson(vo);
+			res.getWriter().println(json);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	private void saveSurveyResponse(ServletRequest req, ServletResponse res)
