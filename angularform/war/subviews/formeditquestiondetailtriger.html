@@ -1,0 +1,46 @@
+
+			<!-- Trigger question -->
+					 <DIV>
+					 <lable>Trigger Question</lable><br>
+	<lable>questionId</lable>
+	<input type="text" class="form-control" required
+		ng-model="option.triggerQuestion.questionId" />
+</DIV>
+<DIV>
+	<lable>question text</lable>
+	<input type="text" class="form-control" required
+		ng-model="option.triggerQuestion.questionText" />
+</DIV>
+<DIV>
+	<lable>questionType</lable>
+	<select ng-model="option.triggerQuestion.questionType">
+		<option value="">---Please select---</option>
+		<option ng-repeat="questionType in questionTypes.surveyQuestionTypes"
+			value="{{questionType.code}}">{{questionType.code}}-{{questionType.description}}</option>
+
+	</select>
+</DIV>
+<DIV>
+	<lable>displpayOrder</lable>
+	<input type="text" class="form-control" required
+		ng-model="option.triggerQuestion.displpayOrder" />
+</DIV>
+<DIV>
+	Options
+	<ul>
+		<li ng-repeat="opt in option.triggerQuestion.options">
+			<DIV>
+			<label>optionId: <input type="text"
+					ng-model="opt.optionId"></label>
+				<label>optionText: <input type="text"
+					ng-model="opt.optionText"></label> <label>optionOrder: <input
+					type="text" ng-model="opt.optionOrder"></label>
+				<button ng-click="option.triggerQuestion.options.splice($index, 1)"
+					aria-label="Remove">X</button>
+			</DIV>
+		</li>
+		<li></li>
+	</ul>a
+	<button ng-click="option.triggerQuestion.options.push({})">add</button>
+
+</DIV>

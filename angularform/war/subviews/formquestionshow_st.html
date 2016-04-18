@@ -1,0 +1,16 @@
+<DIV ng-repeat="option in question.options">
+<input type="radio" name="radiocheck_{{question.questionId}}_{{option.optionId}}" ng-model="option.value"
+		value="Yes">Yes
+<input type="radio" name="radiocheck_{{question.questionId}}_{{option.optionId}}" ng-model="option.value"
+		value="No">No
+	<DIV>
+		<span ng-show="option.value=='Yes'"> 
+		<label>{{option.triggerQuestion.questionText}}</label>
+			<div ng-repeat="opt in option.triggerQuestion.options">
+				<label>{{opt.optionText}}: <input type="text" name="input"
+					ng-model="opt.value">
+				</label>
+			</div>
+		</span>
+	</DIV>
+</DIV>

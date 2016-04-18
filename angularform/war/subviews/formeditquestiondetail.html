@@ -1,0 +1,46 @@
+		 <DIV>
+	<lable>questionId</lable>
+	<input type="text" class="form-control" required
+		ng-model="question.questionId" />
+</DIV>
+<DIV>
+	<lable>question text</lable>
+	<input type="text" class="form-control" required
+		ng-model="question.questionText" />
+</DIV>
+<DIV>
+	<lable>questionType</lable>
+	<select ng-model="question.questionType">
+		<option value="">---Please select---</option>
+		<option ng-repeat="questionType in questionTypes.surveyQuestionTypes"
+			value="{{questionType.code}}">{{questionType.code}}-{{questionType.description}}</option>
+
+	</select>
+</DIV>
+<DIV>
+	<lable>displpayOrder</lable>
+	<input type="text" class="form-control" required
+		ng-model="question.displpayOrder" />
+</DIV>
+<DIV>
+	Options
+	<ul>
+		<li ng-repeat="option in question.options">
+			<DIV>
+			<label>option Id: <input type="text"
+					ng-model="option.optionId"></label>
+				<label>optionText: <input type="text"
+					ng-model="option.optionText"></label> <label>optionOrder: <input
+					type="text" ng-model="option.optionOrder"></label>
+				<button ng-click="question.options.splice($index, 1)"
+					aria-label="Remove">X</button>
+			</DIV>
+			<div ng-if="option.triggerQuestion" ng-include src="'/subviews/formeditquestiondetailtriger.html'">
+			</div>
+			<div ng-if="question.questionType=='ST' &&  option.triggerQuestion==null "><button ng-click="option.triggerQuestion.questionText='trigger question'; option.triggerQuestion.options=[{}]">add trigger question</button></div>
+		</li>
+		<li></li>
+	</ul>
+	<button ng-click="question.options.push({})">add</button>
+
+</DIV>

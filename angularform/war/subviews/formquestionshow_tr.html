@@ -1,0 +1,13 @@
+<DIV ng-repeat="option in question.options">
+	<label>
+    <input type="text" name="input_{{question.questionId}}_{{option.optionId}}" ng-model="option.value"
+           required ng-trim="false">
+  </label>
+  <div role="alert">
+    <span class="error" ng-show="surveyForm.input_{{question.questionId}}_{{option.optionId}}.$error.required">
+      Required!</span>
+    
+  </div>
+  
+  
+</DIV>

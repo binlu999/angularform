@@ -5,52 +5,34 @@
   "formDescription": "MLM Sample Survey",
   "questions": [
     {
-      "questionText": "Have you received your contract?",
-      "questionType": "TV",
+      "questionId": "1",
+      "questionText": "What is your contract name?",
+      "questionType": "TR",
       "options": [
         {
-          "optionText": "Yes",
+          "optionId": "1",
+          "optionText": "Answer here",
           "optionOrder": 1,
-          "triggerQuestion": {
-            "questionText": "When did you receive the contract?",
-            "questionType": "TV",
-            "options": [
-              {
-                "optionText": "Anyone called you?",
-                "optionOrder": 1,
-                "triggerQuestion": {
-                  "questionText": "What is the caller name?",
-                  "questionType": "TV",
-                  "options": [
-                    {
-                      "optionText": "Type your answer here",
-                      "optionOrder": 1
-                    }
-                  ],
-                  "displpayOrder": 10
-                }
-              }
-            ],
-            "displpayOrder": 0
-          }
+          "value": "ss"
         }
       ],
-      "displpayOrder": 10
+      "displpayOrder": 10,
+      "required": false
     },
     {
       "questionText": "When did you get contacted?",
       "questionType": "DR",
-      "required":true,
-      "displpayOrder": 10,
       "options": [
         {
-          "value": "yyyy-mm-dd"
+          "optionOrder": 0
         }
-      ]
+      ],
+      "displpayOrder": 10,
+      "required": true
     },
     {
       "questionText": "Do you have contacts?",
-      "questionType": "checktrigger",
+      "questionType": "ST",
       "options": [
         {
           "optionText": "Yes",
@@ -60,26 +42,35 @@
             "questionType": "TV",
             "options": [
               {
-                "optionText": "Name",
+                "optionText": "Contact 1 Name",
                 "optionOrder": 1,
                 "value": ""
               },
               {
-                "optionText": "Phone",
+                "optionText": "Contact 1 Phone",
                 "optionOrder": 1,
                 "value": ""
+              },
+              {
+                "optionText": "Contact 2 Name",
+                "optionOrder": "2"
+              },
+              {
+                "optionText": "contact 2 Phone",
+                "optionOrder": "2"
               }
             ],
-            "displpayOrder": 10
-          }
-        },
-        {
-          "optionText": "No",
-          "optionOrder": 1
+            "displpayOrder": 10,
+            "required": false,
+            "questionId": "301"
+          },
+          "value": "Yes"
         }
       ],
       "displpayOrder": 10,
-      "value": ""
+      "value": "",
+      "required": false,
+      "questionId": "30"
     }
   ]
 }

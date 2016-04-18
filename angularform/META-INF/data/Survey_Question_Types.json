@@ -1,16 +1,28 @@
 {
   "surveyQuestionTypes": [
     {
-      "code": "SS",
-      "description": "Single Selection"
+      "code": "TR",
+      "description": "Text required"
     },
     {
+        "code": "TN",
+        "description": "Text not required"
+      },
+    {
       "code": "DR",
-      "description": "Date Required"
+      "description": "Date required"
     },
+    {
+        "code": "DR",
+        "description": "Date not equired"
+      },
     {
       "code": "DN",
       "description": "Date Not Required"
+    },
+    {
+      "code": "ST",
+      "description": "Select with triger question"
     },
     {
       "code": "DD",
