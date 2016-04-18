@@ -1,0 +1,15 @@
+<DIV ng-repeat="option in question.options">
+	<label>{{option.optionText}}<input type="email"
+		name="emailinput_{{question.questionId}}_{{option.optionId}}"
+		ng-model="option.value" required>
+	</label>
+	<div role="alert">
+		<span class="error"
+			ng-show="surveyForm.emailinput_{{question.questionId}}_{{option.optionId}}.$error.required">
+			Required!</span> <span class="error"
+			ng-show="surveyForm.emailinput_{{question.questionId}}_{{option.optionId}}.$error.email">
+			Not valid email!</span>
+	</div>
+
+
+</DIV>

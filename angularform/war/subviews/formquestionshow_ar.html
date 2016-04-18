@@ -1,0 +1,6 @@
+<DIV ng-repeat="option in question.options">
+	<textarea name="textarea_{{question.questionId}}_{{option.optionId}}"
+		ng-model="option.value" required>
+</textarea>
+
+</DIV>

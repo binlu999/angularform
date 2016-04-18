@@ -13,10 +13,6 @@
       "description": "Date required"
     },
     {
-        "code": "DR",
-        "description": "Date not equired"
-      },
-    {
       "code": "DN",
       "description": "Date Not Required"
     },
@@ -25,20 +21,28 @@
       "description": "Select with triger question"
     },
     {
-      "code": "DD",
-      "description": "Drop Down list"
+      "code": "EM",
+      "description": "Email required and validated"
     },
     {
-      "code": "TA",
-      "description": "Text Area"
+      "code": "SS",
+      "description": "Single selection dropdown list"
     },
     {
-      "code": "TV",
-      "description": "free Text Value"
+        "code": "MS",
+        "description": "Multi selection dropdown list"
+      },
+      {
+          "code": "MC",
+          "description": "Multi checkbox select"
+        },
+    {
+      "code": "AR",
+      "description": "Text Area required"
     },
     {
-      "code": "MS",
-      "description": "Multiple Selection"
-    }
+        "code": "AN",
+        "description": "Text Area not required"
+      }
   ]
 }

@@ -19,6 +19,24 @@
 				<div ng-switch-when="ST">
 					<div ng-include src="'/subviews/formquestionshow_st.html'"></div>
 				</div>
+				<div ng-switch-when="EM">
+					<div ng-include src="'/subviews/formquestionshow_em.html'"></div>
+				</div>
+				<div ng-switch-when="SS">
+					<div ng-include src="'/subviews/formquestionshow_ss.html'"></div>
+				</div>
+				<div ng-switch-when="MS">
+					<div ng-include src="'/subviews/formquestionshow_ms.html'"></div>
+				</div>
+				<div ng-switch-when="MC">
+					<div ng-include src="'/subviews/formquestionshow_mc.html'"></div>
+				</div>
+				<div ng-switch-when="AR">
+					<div ng-include src="'/subviews/formquestionshow_ar.html'"></div>
+				</div>
+				<div ng-switch-when="AN">
+					<div ng-include src="'/subviews/formquestionshow_an.html'"></div>
+				</div>
 			</div>
 	</uib-tab> 
 	<uib-tab index="1" heading="Edit"> 
@@ -28,3 +46,5 @@
 </uib-tabset>
 </uib-accordion-group>
 </uib-accordion>
+
+<button ng-click="addNewQuestion();">add question</button>

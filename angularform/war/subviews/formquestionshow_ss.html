@@ -1,0 +1,13 @@
+<DIV >
+<!--  
+	<select>
+		<option ng-repeat="option in question.options" ng-selected="option.value">{{option.optionText}}</option>
+	</select>
+-->
+	<select name="repeatSelect" id="repeatSelect"
+					ng-model="question.value">
+					<option ng-repeat="option in question.options"
+						value="{{option.optionText}}" ng-selected="question.value==option.value">{{option.optionText}}</option>
+				</select>
+				
+</DIV>
