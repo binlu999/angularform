@@ -20,6 +20,7 @@ import com.jpa.survey.file.SurveyFormFileImporter;
 import com.jpa.survey.file.SurveyQuestionTypeFileImporter;
 import com.jpa.survey.vo.SurveyFormVO;
 import com.jpa.survey.vo.SurveyQuestionTypeVO;
+import com.jpa.util.EmailSender;
 
 public class SurveyFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -85,6 +86,8 @@ public class SurveyFormServlet extends HttpServlet {
 				br.close();
 			}
 		}
+		
+		EmailSender.send(json.toString());
 		log.info(json.toString());
 	}
 

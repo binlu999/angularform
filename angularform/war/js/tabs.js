@@ -21,4 +21,26 @@ angular.module('surveyform.edit').controller('survey.edit.ctl', function ($scope
   $scope.model = {
     name: 'Tabs'
   };
+  
+  $scope.submitSurvey = function() {
+		$scope.code = null;
+		$scope.response = null;
+
+		$http({
+			method : 'POST',
+			url : '/res/surveyform?requesttype=saveform',
+			headers : {
+				'Content-Type' : 'application/json'
+			},
+			data : $scope.data
+		}).then(function(response) {
+			$scope.status = response.status;
+			
+			console.log("here");
+		}, function(response) {
+			$scope.data = response.data || "Request failed";
+			$scope.status = response.status;
+		});
+	};
+	
 });
