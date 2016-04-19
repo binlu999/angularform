@@ -16,11 +16,18 @@ import javax.ws.rs.core.Response;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.jpa.survey.file.SurveyFormFileImporter;
 import com.jpa.survey.file.SurveyQuestionTypeFileImporter;
 import com.jpa.survey.vo.SurveyFormVO;
 import com.jpa.survey.vo.SurveyQuestionTypeVO;
 import com.jpa.util.EmailSender;
+import com.jpa.util.JSPUtil;
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.EntityNotFoundException;
+import com.google.appengine.api.datastore.Text;
 
 public class SurveyFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -41,7 +48,7 @@ public class SurveyFormServlet extends HttpServlet {
 		log.info("Service");
 		String requesttype = req.getParameter("requesttype");
 		if ("forform".equals(requesttype)) {
-			getFormJSON(res);
+			getFormJSON(req,res);
 		} else if ("saveform".equals(requesttype)) {
 			saveSurveyResponse(req, res);
 		}else if ("forquestiontype".equals(requesttype)) {
@@ -88,12 +95,28 @@ public class SurveyFormServlet extends HttpServlet {
 		}
 		
 		EmailSender.send(json.toString());
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		SurveyFormVO surveyFormVO=gson.fromJson(json.toString(), SurveyFormVO.class);
+		save(surveyFormVO);
 		log.info(json.toString());
 	}
 
-	private void getFormJSON(ServletResponse res) {
-		SurveyFormFileImporter importer = new SurveyFormFileImporter();
+	private void getFormJSON(ServletRequest req, ServletResponse res) {
+		
+		String key=req.getParameter("formkey");
 		SurveyFormVO formVO;
+		if(key.length()>20){
+			try {
+				String json=JSPUtil.getByKey(key);
+				res.getWriter().println(json);
+				return;
+			} catch (EntityNotFoundException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		SurveyFormFileImporter importer = new SurveyFormFileImporter();
+		
 		try {
 			formVO = importer
 					.importFileToObjectByGson("data/MLM_Life_Survey.json");
@@ -105,6 +128,22 @@ public class SurveyFormServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void save(SurveyFormVO surveyFormVO){
+		
+		String formKey = surveyFormVO.getFormDescription();
+		formKey=formKey.replaceAll(" ", "_");
+		Gson gson = new Gson();
+		String json = gson.toJson(surveyFormVO);
+		
+		Text text=new Text(json);
+		
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+		Entity voentity = new Entity("SurveyFormVO", formKey);
+		voentity.setProperty("formData", text);
+		datastore.put(voentity);
+		log.info("FOrm saved");
 	}
 
 }

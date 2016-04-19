@@ -3,7 +3,7 @@ angular.module('surveyform.edit').controller(
 		'survey.edit.ctl',
 		function($scope, $http) {
 
-			$http.get("/res/surveyform?requesttype=forform").then(
+			$http.get("/res/surveyform?requesttype=forform&formkey="+keyid).then(
 					function(response) {
 						$scope.data = response.data;
 						console.log("Got form [[" + JSON.stringify($scope.data)
