@@ -97,7 +97,7 @@ public class SurveyFormServlet extends HttpServlet {
 		EmailSender.send(json.toString());
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		SurveyFormVO surveyFormVO=gson.fromJson(json.toString(), SurveyFormVO.class);
-		save(surveyFormVO);
+		JSPUtil.save(surveyFormVO);
 		log.info(json.toString());
 	}
 
@@ -130,20 +130,5 @@ public class SurveyFormServlet extends HttpServlet {
 		}
 	}
 	
-	public void save(SurveyFormVO surveyFormVO){
-		
-		String formKey = surveyFormVO.getFormDescription();
-		formKey=formKey.replaceAll(" ", "_");
-		Gson gson = new Gson();
-		String json = gson.toJson(surveyFormVO);
-		
-		Text text=new Text(json);
-		
-		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-		Entity voentity = new Entity("SurveyFormVO", formKey);
-		voentity.setProperty("formData", text);
-		datastore.put(voentity);
-		log.info("FOrm saved");
-	}
-
+	
 }
